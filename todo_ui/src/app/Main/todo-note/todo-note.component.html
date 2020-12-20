@@ -1,0 +1,55 @@
+<nav class="navbar fixed-top navbar-dark bg-primary">
+    <a class="navbar-brand">Note TODO List</a>
+    <div class="navbar ml-auto">
+        <a class="btn btn-success" (click)="openAddModal()"><i class="fas fa-plus-square"></i> Add</a><a class="btn btn-danger" style="margin-left: 5px;" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+  </nav>
+<div class="d-flex flex-column jsutify-content-center container"><br><br><br><br>
+<div class="row" style="padding-top: 10px;">
+        <div class="col-md-4 col-sm-12" style="margin-top: 10px;" *ngFor="let i of noteList">
+            <div class="card">
+                <div class="card-header text-center txet-white">
+                    <b>{{i.title}}</b>
+                </div>
+                <div class="card-body">
+                    {{i.textMessage}}
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-8 text-right">
+                            <a class="btn btn-primary" (click)="openEditModal(i.id)" style="margin-right: 10px;"><i class="fas fa-edit"></i> Edit</a>
+                            <a class="btn btn-danger" (click)="deleteNoteConfirm(i.id)"><i class="fas fa-trash"></i> Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div></div>
+
+
+<div class="modal fade" id="noteModal" tabindex="-1" role="dialog" aria-labelledby="noteModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="noteModal">{{modalTitle}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <input type="text" class="form-control" placeholder="Note Title" [(ngModel)]="title" /><br>
+            <textarea class="form-control" maxlength="150" placeholder="Text Message" [(ngModel)]="text"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i> Close</button>
+          <ng-container *ngIf="modal === 'add'">
+            <button type="button" class="btn btn-primary" (click)="addNote()"><i class="fas fa-plus-square"></i> Add new note</button>
+          </ng-container>
+          <ng-container *ngIf="modal === 'edit'">
+            <button type="button" class="btn btn-primary" (click)="editNote()"><i class="fas fa-save"></i> Save</button>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>

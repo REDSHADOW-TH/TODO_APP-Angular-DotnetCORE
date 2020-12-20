@@ -1,0 +1,14 @@
+.login-container {
+    background-image: Url('assets/bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+}
+.login-box {
+    min-width: 360px;
+    opacity: .7;
+}
+.textbox {
+    width: 100%;
+}

@@ -1,0 +1,21 @@
+* {
+    font-family: sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-image: Url('assets/bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+}
+
+ng-deep:host html.swal2-height-auto {
+    height: 100% !important
+}
+
+ng-deep:host body.swal2-height-auto {
+    height: 100% !important
+}
